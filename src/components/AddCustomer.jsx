@@ -1,4 +1,7 @@
 import React,{ useState} from 'react'
+import { ButtonStyled } from '../styles/ButtonStyled'
+import { FormSectionStyled } from '../styles/FormSection'
+import { FormStyled } from '../styles/FormStyled'
 
 export default function AddCustomer(props) {
     const [name,setName]=useState("")
@@ -40,17 +43,14 @@ export default function AddCustomer(props) {
             console.log(data) 
             return props.onSuccess()})
     
-
-        // .then(res=>res.json())
-        // .then(data=>{
-        //     console.log(data)
-        //     return props.onSuccess()}) 
     }
    
     return (
         <div>
-            <form onSubmit={handleOnSubmit}>
+            <FormSectionStyled>
             <h3>add customer</h3>
+            <FormStyled onSubmit={handleOnSubmit}>
+            
             {renderInput("text","NAME",name,setName)}
             {renderInput("text","ORGANISATION NUMBER",organisationNr,setOrganisationNr)}
             {renderInput("text","VAT NUMBER",vatNr,setVatNr)}
@@ -59,8 +59,9 @@ export default function AddCustomer(props) {
             {renderInput("text","WEBSITE",website,setWebsite)}
             {renderInput("email","EMAIL",email,setEmail)}
             {renderInput("tel","PHONE NUMBER",phoneNumber,setPhoneNumber)}
-            <button type="submit">create customer</button>
-            </form>
+            <ButtonStyled bg="#222831" color="#f96d00" type="submit">create customer</ButtonStyled>
+            </FormStyled>
+            </FormSectionStyled>
         </div>
     )
       

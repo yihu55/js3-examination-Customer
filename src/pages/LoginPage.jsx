@@ -1,4 +1,8 @@
 import React,{useState} from 'react'
+import Header from '../components/Header'
+import { ButtonStyled } from '../styles/ButtonStyled'
+import { FormSectionStyled } from '../styles/FormSection'
+import { FormStyled } from '../styles/FormStyled'
 //import { useNavigate } from 'react-router-dom'
 
 export default function LoginPage() {
@@ -31,8 +35,11 @@ export default function LoginPage() {
     }
     return (
         <div>
+        <Header />
+        <div style={{backgroundColor:"#393e46",height:"100vh"}}>
+        <FormSectionStyled bg="#f96d00" width="40%">
             <h1>login</h1>
-            <form onSubmit={handleOnSubmit}>
+            <FormStyled onSubmit={handleOnSubmit}>
                 <input 
                 type="text" 
                 value={email} 
@@ -45,10 +52,12 @@ export default function LoginPage() {
                 placeholder="Password"
                 onChange={e=>setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <ButtonStyled type="submit">Login</ButtonStyled>
 
-            </form>
+            </FormStyled>
 
+        </FormSectionStyled>
+        </div>
         </div>
     )
 }

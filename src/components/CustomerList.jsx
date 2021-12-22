@@ -1,19 +1,11 @@
 import React,{useState,useEffect} from 'react'
-import AddCustomer from '../components/AddCustomer'
 import { Link } from 'react-router-dom'
-import MyAccountInfo from '../components/MyAccountInfo'
 
-
-
-export default function HomePage() {
-   
+export default function CustomerList() {
     const [customerList,setCustomerList]=useState(null)
-    // const [myData,setMyData]=useState([])
-    
-    
     useEffect(()=>{
         fetchData()
-        //getUserInfo()
+        
     },[])
     
 function fetchData(){
@@ -34,24 +26,9 @@ function fetchData(){
         
 }
 
-// function getUserInfo(){
-//     const token=localStorage.getItem("examination")
-//     fetch("https://frebi.willandskill.eu/api/v1/me",{
-       
-//         method:"GET",
-//         headers:{
-//             "Content-Type":"application/json",
-//             "Authorization":`Bearer ${token}`
-//         }
-//     })
-//     .then(res=>res.json())
-//     .then(data=>setMyData(data))
-// }
-
-
     return (
         <div>
-          <h2>Customers</h2>
+             <h2>Customers</h2>
           <button onClick={fetchData}>refresh</button>
           {customerList&&customerList.map((customer,id)=>{
             return (
@@ -60,16 +37,6 @@ function fetchData(){
            {/* {`/customers/${customer.id}`} get id value of customer */}
             </section>)
           })}
-            
-        
-           {/* {myData&&
-           <>
-           <p>{myData.firstName} {myData.lastName} is inlogged</p>
-           <p>email: {myData.email} id:{myData.id}</p>
-           </>} */}
-           <MyAccountInfo />
-           <AddCustomer  onSuccess={fetchData}/>
-         
         </div>
     )
 }
