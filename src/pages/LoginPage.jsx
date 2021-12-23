@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import Header from '../components/Header'
 import { ButtonStyled } from '../styles/ButtonStyled'
-import { FormSectionStyled } from '../styles/FormSection'
+import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
+import { MainStyled } from '../styles/MainStyled'
 //import { useNavigate } from 'react-router-dom'
 
 export default function LoginPage() {
@@ -35,8 +36,8 @@ export default function LoginPage() {
     }
     return (
         <div>
-        <Header />
-        <div style={{backgroundColor:"#393e46",height:"100vh"}}>
+        
+        <MainStyled bg="#393e46" height="90vh">
         <FormSectionStyled bg="#f96d00" width="40%">
             <h1>login</h1>
             <FormStyled onSubmit={handleOnSubmit}>
@@ -53,11 +54,10 @@ export default function LoginPage() {
                 onChange={e=>setPassword(e.target.value)}
                 />
                 <ButtonStyled type="submit">Login</ButtonStyled>
-
             </FormStyled>
-
         </FormSectionStyled>
-        </div>
+        </MainStyled>
+        
         </div>
     )
 }

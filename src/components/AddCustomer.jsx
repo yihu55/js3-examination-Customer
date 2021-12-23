@@ -1,6 +1,6 @@
 import React,{ useState} from 'react'
 import { ButtonStyled } from '../styles/ButtonStyled'
-import { FormSectionStyled } from '../styles/FormSection'
+import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
 
 export default function AddCustomer(props) {
@@ -47,8 +47,8 @@ export default function AddCustomer(props) {
    
     return (
         <div>
-            <FormSectionStyled>
-            <h3>add customer</h3>
+            <FormSectionStyled bg="#f96d00">
+            <h2>ADD CUSTOMER</h2>
             <FormStyled onSubmit={handleOnSubmit}>
             
             {renderInput("text","NAME",name,setName)}

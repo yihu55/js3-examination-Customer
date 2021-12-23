@@ -5,10 +5,7 @@ export const FormSectionStyled=styled.div`
     flex-direction:column;
     align-items:center;
     background-color:${props=>props.bg};
-    width:${props=>props.width};
-    height:${props=>props.height};
-    margin: auto;
-    padding:50px;
-    
+    margin-top: 50px;
+    padding:50px 100px 50px;
    
 `

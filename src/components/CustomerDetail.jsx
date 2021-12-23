@@ -1,9 +1,10 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
+import {CustomerInfoStyled} from '../styles/CustomerInfoStyled'
 
 
 
-export default function CustomDetail() {
+export default function CustomerDetail() {
     const {id}=useParams()
     console.log(id)
     
@@ -32,7 +33,7 @@ export default function CustomDetail() {
     
     return (
 
-        <div>
+     <CustomerInfoStyled bg="#f96d00">
         {customer&&
         <div>
             <h2>Customer detail-{id}</h2>
@@ -47,6 +48,6 @@ export default function CustomDetail() {
             <p>EMAIL : {customer.email}</p>
             <p>PHONE : {customer.phoneNumber}</p>     
         </div>}
-        </div>
+        </CustomerInfoStyled>
     )
 }
