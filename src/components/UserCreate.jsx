@@ -6,6 +6,7 @@ import { FormStyled } from '../styles/FormStyled'
 export default function UserCreate() {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
+    const [response,setResponse]=useState("")
 
     function handleOnSubmit(e){
         e.preventDefault()
@@ -22,12 +23,13 @@ export default function UserCreate() {
             body: JSON.stringify(payload)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setResponse(data))
         }
     
 
 
     return (
+        <div>
         <FormSectionStyled>
             <h1>Create user</h1>
             <FormStyled>
@@ -46,5 +48,7 @@ export default function UserCreate() {
                 <ButtonStyled onSubmit={handleOnSubmit}>Create User</ButtonStyled>
             </FormStyled> 
         </FormSectionStyled>
+        {response&&<p>{response.email}</p>}
+        </div>
     )
 }

@@ -32,14 +32,14 @@ function App() {
   }
 
   return (
-    <CustomerListContext.Provider value={{ customerList }}>
+    <CustomerListContext.Provider value={{ customerList, setCustomerList }}>
       {/* <Link to="/login">Login</Link>
       <Link to="/home">Home</Link> */}
       <Header />
 
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<HomePage onSuccess={fetchData} />} />
         <Route path="/customers/:id" element={<CustomerDetailPage />} />
         <Route path="/user-create" element={<UserCreatePage />} />
       </Routes>

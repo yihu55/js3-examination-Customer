@@ -20,7 +20,7 @@ export default function CustomerDetail() {
             <h1>Customer detail</h1>
             <h3>NAME:{customer.name}</h3>
             <p>ORGANISATION NUMBER:{customer.name}</p>
-            <p>VAT: </p> 
+            <p>VAT:{customer.vatNr} </p> 
             <p>REFERENCE: {customer.reference}</p>
             <p>PAYMENTTERM :{customer.paymentTerm}</p>
             <p>WEBSITE : {customer.website}</p>

@@ -1,17 +1,20 @@
-import React,{ useState} from 'react'
+import React,{ useContext, useState} from 'react'
+import { CustomerListContext } from '../App'
 import { ButtonStyled } from '../styles/ButtonStyled'
 import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
 
 export default function AddCustomer(props) {
+    //console.log(props)
+    //const [customerList,setCustomerList]=useContext(CustomerListContext)
     const [name,setName]=useState("")
-    const [organisationNr,setOrganisationNr]=useState("SExxx")
+    const [organisationNr,setOrganisationNr]=useState("")
     const [vatNr,setVatNr]=useState("")
     const [reference,setReference]=useState("")
     const [paymentTerm,setPaymentTerm]=useState(0)
     const [website,setWebsite]=useState("")
     const [email,setEmail]=useState("user@example.com")
-    const [phoneNumber,setPhoneNumber]=useState("076-")
+    const [phoneNumber,setPhoneNumber]=useState("")
 
     function renderInput(type,placeholder,value,setValue){
         return(
@@ -25,6 +28,9 @@ export default function AddCustomer(props) {
     }
   
     function handleOnSubmit(e){
+        if(!vatNr.includes("SE")||vatNr.length!==12){
+            alert("Please insert SExxx(10 number)")
+        }
         e.preventDefault()
         const url="https://frebi.willandskill.eu/api/v1/customers/"
         const token=localStorage.getItem("examination")
@@ -39,14 +45,10 @@ export default function AddCustomer(props) {
             body: JSON.stringify(payload),
         })
         .then(res => res.json())
-        .then(data =>{
-            console.log(data) 
-            return props.onSuccess()})
+        .then(data =>console.log(data))
+            // props.onSuccess())
+    }
     
-    }
-    function validateInput(){
-        
-    }
    
     return (
         <div>
@@ -56,7 +58,7 @@ export default function AddCustomer(props) {
             
             {renderInput("text","NAME",name,setName)}
             {renderInput("text","ORGANISATION NUMBER",organisationNr,setOrganisationNr)}
-            {renderInput("text","VAT NUMBER",vatNr,setVatNr)}
+            {renderInput("text","VAT NUMBER t.ex SE follow by 10 numbers",vatNr,setVatNr)}
             {renderInput("text","REFERENCE",reference,setReference)}
             {renderInput("number","PAYMENT TERM",paymentTerm,setPaymentTerm)}
             {renderInput("text","WEBSITE",website,setWebsite)}
