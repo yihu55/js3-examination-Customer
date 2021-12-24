@@ -1,10 +1,12 @@
-import styled from "styled-components";
+import styled,{css} from "styled-components";
+
 
 export const ButtonStyled=styled.button`
     background-color:${props=>props.bg};
     color:${props=>props.color};
     border-radius:5px;
     height:45px;
+    ${props=>props.margin && css `margin:20px 0;`}
 
     &:hover{
         transform:scale(0.95);
