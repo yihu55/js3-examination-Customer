@@ -44,6 +44,9 @@ export default function AddCustomer(props) {
             return props.onSuccess()})
     
     }
+    function validateInput(){
+        
+    }
    
     return (
         <div>
