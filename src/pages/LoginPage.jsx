@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
-import Header from '../components/Header'
 import { ButtonStyled } from '../styles/ButtonStyled'
 import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
 import { MainStyled } from '../styles/MainStyled'
+import { Link } from 'react-router-dom'
+import UserCreatePage from './UserCreatePage'
 //import { useNavigate } from 'react-router-dom'
+
 
 export default function LoginPage() {
     const [email,setEmail]=useState("")
@@ -53,7 +55,8 @@ export default function LoginPage() {
                 placeholder="Password"
                 onChange={e=>setPassword(e.target.value)}
                 />
-                <ButtonStyled type="submit">Login</ButtonStyled>
+                <Link to="/user-create">If not customer, create a account</Link>
+                <ButtonStyled type="submit" margin="true">Login</ButtonStyled>
             </FormStyled>
         </FormSectionStyled>
         </MainStyled>

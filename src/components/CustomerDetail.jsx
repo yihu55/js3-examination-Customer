@@ -36,11 +36,9 @@ export default function CustomerDetail() {
      <CustomerInfoStyled bg="#f96d00">
         {customer&&
         <div>
-            <h2>Customer detail-{id}</h2>
-            {customer.name}
-            {customer.id}
-             customer id : {id}
-             <p>ORGANISATION NUMBER:{customer.name}</p>
+            <h1>Customer detail</h1>
+            <h3>NAME:{customer.name}</h3>
+            <p>ORGANISATION NUMBER:{customer.name}</p>
             <p>VAT: </p> 
             <p>REFERENCE: {customer.reference}</p>
             <p>PAYMENTTERM :{customer.paymentTerm}</p>
