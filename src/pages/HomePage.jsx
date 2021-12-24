@@ -6,6 +6,7 @@ import { MainStyled } from '../styles/MainStyled'
 
 
 export default function HomePage(props) {
+    console.log(props)
    
 //     const [customerList,setCustomerList]=useState(null)
     
@@ -36,8 +37,8 @@ export default function HomePage(props) {
         <div>
      
         <MainStyled bg="#393e46">
-        <CustomerList/> {/*onSuccess={fetchData}/>*/}
-        <AddCustomer />  {/*onSuccess={fetchData}/>*/}
+        <CustomerList onSuccess={props.onSuccess}/>
+        <AddCustomer onSuccess={props.onSuccess}/>
         </MainStyled>
         </div>
     )

@@ -27,7 +27,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        return setCustomerList(data.results);
+        setCustomerList(data.results);
       });
   }
 

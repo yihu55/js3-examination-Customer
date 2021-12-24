@@ -5,7 +5,7 @@ import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
 
 export default function AddCustomer(props) {
-    //console.log(props)
+    console.log(props)
     //const [customerList,setCustomerList]=useContext(CustomerListContext)
     const [name,setName]=useState("")
     const [organisationNr,setOrganisationNr]=useState("")
@@ -45,8 +45,8 @@ export default function AddCustomer(props) {
             body: JSON.stringify(payload),
         })
         .then(res => res.json())
-        .then(data =>console.log(data))
-            // props.onSuccess())
+        .then(data =>props.onSuccess())
+          
     }
     
    

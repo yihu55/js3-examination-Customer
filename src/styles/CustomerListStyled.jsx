@@ -10,4 +10,9 @@ background-color:${props=>props.bg};
 // height:${props=>props.height};
 margin-top:50px;
 padding:50px 100px 50px;
+div{
+    display:flex;
+    
+}
+
 `

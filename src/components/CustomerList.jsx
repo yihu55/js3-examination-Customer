@@ -23,10 +23,8 @@ export default function CustomerList(props) {
           headers: headers,
           method: "DELETE"
         })
-        .then((res) =>customerList)
+        .then((res) =>props.onSuccess())
         
-        // =>res.json() )
-        // .then(data=>setCustomerList(data))//
       }
 
     return (
@@ -36,11 +34,10 @@ export default function CustomerList(props) {
           {/* <button onClick={customerList}>refresh</button> */}
           {customerList&&customerList.map((customer,id)=>{
             return (
-            <section key={customer.id}>
+            <div key={customer.id}>
             <LinkStyled to={`/customers/${id}`} color="#222831"><p>NAME: {customer.name} id:{customer.id}</p></LinkStyled>
-            <ButtonStyled onClick={(e)=>handleOnDelete(customer.id)}>Delete</ButtonStyled>
-           {/* {`/customers/${customer.id}`} get id value of customer */}
-            </section>)
+            <ButtonStyled bg="#222831" color="#f96d00" onClick={(e)=>handleOnDelete(customer.id)}>Delete</ButtonStyled>
+            </div>)
           })}
         </CustomerListStyled>
     
