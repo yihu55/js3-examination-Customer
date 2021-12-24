@@ -1,37 +1,20 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import { Link } from 'react-router-dom'
+import { CustomerListContext } from '../App'
 import { CustomerListStyled } from '../styles/CustomerListStyled'
 import { LinkStyled } from '../styles/LinkStyled'
 
-export default function CustomerList() {
-    const [customerList,setCustomerList]=useState(null)
-    useEffect(()=>{
-        fetchData()
-        
-    },[])
-    
-function fetchData(){
-    
-        const url="https://frebi.willandskill.eu/api/v1/customers/"
-        const token=localStorage.getItem("examination")
-        fetch(url,{
 
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization":`Bearer ${token}`
-            }
-        })
-        .then(res=>res.json())
-        .then(data=>{console.log(data)
-        return setCustomerList(data.results)})
-        
-}
+
+export default function CustomerList() {
+    const {customerList}=useContext(CustomerListContext)
+    console.log(customerList)
 
     return (
+        
         <CustomerListStyled bg="#f96d00">
           <h2>Customers</h2>
-          <button onClick={fetchData}>refresh</button>
+          {/* <button onClick={fetchData}>refresh</button> */}
           {customerList&&customerList.map((customer,id)=>{
             return (
             <section key={customer.id}>
@@ -40,5 +23,8 @@ function fetchData(){
             </section>)
           })}
         </CustomerListStyled>
+    
     )
+
 }
+

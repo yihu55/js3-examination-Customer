@@ -1,20 +1,37 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
+import { ButtonStyled } from '../styles/ButtonStyled'
+import { FormSectionStyled } from '../styles/FormSectionStyled'
+import { FormStyled } from '../styles/FormStyled'
 
 export default function UserCreate() {
     const [email,setEmail]=useState("")
-    cosnt [password,setPassword]=useState("")
+    const [password,setPassword]=useState("")
 
-    useEffect(()=>{
+    function handleOnSubmit(e){
+        e.preventDefault()
+        const payload={
+            email,
+            password
+        }
         const url="https://frebi.willandskill.eu/auth/users/"
-        
-    },[])
+        fetch(url,{
+            method:"POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        }
+    
 
 
     return (
-        <div>
+        <FormSectionStyled>
             <h1>Create user</h1>
-            <h2>create</h2>
-            <input 
+            <FormStyled>
+               <input
                 type="text" 
                 value={email} 
                 placeholder="Email"
@@ -26,6 +43,8 @@ export default function UserCreate() {
                 placeholder="Password"
                 onChange={e=>setPassword(e.target.value)}
                 />
-        </div>
+                <ButtonStyled onSubmit={handleOnSubmit}>Create User</ButtonStyled>
+            </FormStyled> 
+        </FormSectionStyled>
     )
 }

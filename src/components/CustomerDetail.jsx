@@ -1,36 +1,17 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect,useState,useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import {CustomerInfoStyled} from '../styles/CustomerInfoStyled'
-
+import {CustomerListContext} from '../App'
 
 
 export default function CustomerDetail() {
-    const {id}=useParams()
-    console.log(id)
+     //const {id}=useParams()
+     const params=useParams()
+     const id=params.id
     
-  const [customer,setCustomer]=useState(null)
-  
-  
- 
-    
-    useEffect(()=>{
-        const url=`https://frebi.willandskill.eu/api/v1/customers/${id}`
-        const token=localStorage.getItem("examination")
-        fetch(url,{
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization":`Bearer ${token}`
-            }
-
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data.results[id])
-            setCustomer(data.results[id])})
-
-
-    },[])
-    
+    const {customerList}=useContext(CustomerListContext)
+    const customer=customerList[id]
+   
     return (
 
      <CustomerInfoStyled bg="#f96d00">
