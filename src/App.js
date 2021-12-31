@@ -33,8 +33,6 @@ function App() {
 
   return (
     <CustomerListContext.Provider value={{ customerList, setCustomerList }}>
-      {/* <Link to="/login">Login</Link>
-      <Link to="/home">Home</Link> */}
       <Header />
 
       <Routes>

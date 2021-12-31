@@ -1,12 +1,11 @@
-import React,{ useContext, useState} from 'react'
-import { CustomerListContext } from '../App'
+import React,{ useState} from 'react'
+
 import { ButtonStyled } from '../styles/ButtonStyled'
 import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
 
 export default function AddCustomer(props) {
-    console.log(props)
-    //const [customerList,setCustomerList]=useContext(CustomerListContext)
+   
     const [name,setName]=useState("")
     const [organisationNr,setOrganisationNr]=useState("")
     const [vatNr,setVatNr]=useState("")

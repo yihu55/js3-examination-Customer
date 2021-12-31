@@ -55,7 +55,7 @@ export default function LoginPage() {
                 placeholder="Password"
                 onChange={e=>setPassword(e.target.value)}
                 />
-                <Link to="/user-create">If not customer, create a account</Link>
+                <p>If not customer<Link to="/user-create"> create a account</Link></p>
                 <ButtonStyled type="submit" margin="true">Login</ButtonStyled>
             </FormStyled>
         </FormSectionStyled>

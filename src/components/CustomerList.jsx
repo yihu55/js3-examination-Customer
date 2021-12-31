@@ -1,14 +1,13 @@
-import React,{useState,useEffect,useContext} from 'react'
-import { Link } from 'react-router-dom'
+import React,{useContext} from 'react'
 import { CustomerListContext } from '../App'
 import { ButtonStyled } from '../styles/ButtonStyled'
 import { CustomerListStyled } from '../styles/CustomerListStyled'
 import { LinkStyled } from '../styles/LinkStyled'
-
+import PrivateRoute from './PrivateRoute'
 
 
 export default function CustomerList(props) {
-    const {customerList,setCustomerList}=useContext(CustomerListContext)
+    const {customerList}=useContext(CustomerListContext)
     console.log(customerList)
    
     function handleOnDelete(id) {
@@ -28,7 +27,7 @@ export default function CustomerList(props) {
       }
 
     return (
-        
+        <PrivateRoute>
         <CustomerListStyled bg="#f96d00">
           <h2>Customers</h2>
           {/* <button onClick={customerList}>refresh</button> */}
@@ -40,6 +39,7 @@ export default function CustomerList(props) {
             </div>)
           })}
         </CustomerListStyled>
+        </PrivateRoute>
     
     )
 
