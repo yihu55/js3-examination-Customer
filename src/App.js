@@ -6,43 +6,23 @@ import CustomerDetailPage from "./pages/CustomerDetailPage";
 import Header from "./components/Header";
 import UserCreatePage from "./pages/UserCreatePage";
 
-const CustomerListContext = createContext({});
+//const CustomerListContext = createContext({});
 function App() {
-  const [customerList, setCustomerList] = useState(null);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  function fetchData() {
-    const url = "https://frebi.willandskill.eu/api/v1/customers/";
-    const token = localStorage.getItem("examination");
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCustomerList(data.results);
-      });
-  }
-
   return (
-    <CustomerListContext.Provider value={{ customerList, setCustomerList }}>
+    <div>
       <Header />
-
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={<HomePage onSuccess={fetchData} />} />
+        <Route path="/home" element={<HomePage />} />
+        {/* //onSuccess={fetchData} />} /> */}
         <Route path="/customers/:id" element={<CustomerDetailPage />} />
         <Route path="/user-create" element={<UserCreatePage />} />
       </Routes>
-    </CustomerListContext.Provider>
+    </div>
+    // <CustomerListContext.Provider value={{ customerList, setCustomerList }}>
+
+    // </CustomerListContext.Provider>
   );
 }
-export { CustomerListContext };
+//export { CustomerListContext };
 export default App;

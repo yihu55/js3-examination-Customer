@@ -10,7 +10,7 @@ export default function AddCustomer(props) {
     const [organisationNr,setOrganisationNr]=useState("")
     const [vatNr,setVatNr]=useState("")
     const [reference,setReference]=useState("")
-    const [paymentTerm,setPaymentTerm]=useState(0)
+    const [paymentTerm,setPaymentTerm]=useState("")
     const [website,setWebsite]=useState("")
     const [email,setEmail]=useState("user@example.com")
     const [phoneNumber,setPhoneNumber]=useState("")
@@ -27,10 +27,17 @@ export default function AddCustomer(props) {
     }
   
     function handleOnSubmit(e){
-        if(!vatNr.includes("SE")||vatNr.length!==12){
-            alert("Please insert SExxx(10 number)")
-        }
         e.preventDefault()
+
+        const vatNrStart=vatNr.slice(0,2)
+        const vatNrefter=vatNr.slice(2)
+
+        if(vatNrStart!=="SE"&&vatNrefter.length!==10){
+            alert("Please input SExxx(10 number)!")
+        }
+        if(isNaN(paymentTerm)||paymentTerm===""){
+            alert("Please input a number in paymentTerm!")
+        }
         const url="https://frebi.willandskill.eu/api/v1/customers/"
         const token=localStorage.getItem("examination")
         const payload={name,organisationNr,vatNr,reference,paymentTerm,website,email,phoneNumber}
@@ -44,7 +51,8 @@ export default function AddCustomer(props) {
             body: JSON.stringify(payload),
         })
         .then(res => res.json())
-        .then(data =>props.onSuccess())
+        .then(data =>console.log(data))
+            //props.onSuccess())
           
     }
     

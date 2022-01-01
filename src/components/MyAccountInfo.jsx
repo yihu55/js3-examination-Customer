@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 
 export default function MyAccountInfo() {
 
-    const [myData,setMyData]=useState([])
+    const [myData,setMyData]=useState(null)
     useEffect(()=>{
        getUserInfo()
     },[])
@@ -19,14 +19,16 @@ export default function MyAccountInfo() {
     })
     .then(res=>res.json())
     .then(data=>setMyData(data))
-}
+   }
     return (
+       
         <div>
              {myData&&
            <>
            <p>{myData.firstName} {myData.lastName} is inlogged</p>
-           <p>email: {myData.email} id:{myData.id}</p>
+           <p>email: {myData.email}</p>
            </>}
         </div>
+        
     )
 }

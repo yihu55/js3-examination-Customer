@@ -9,4 +9,5 @@ export const CustomerInfoStyled=styled.div`
     // height:${props=>props.height};
     margin-top:50px;
     padding:50px 100px 50px;
+    height:max-content;
 `

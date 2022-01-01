@@ -5,5 +5,5 @@ export const MainStyled=styled.main`
    width:100%;
    display:flex;
    justify-content:space-around;
-   height:${props=>props.height};
+   height:100vh;
 `

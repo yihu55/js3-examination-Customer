@@ -7,5 +7,6 @@ export const FormSectionStyled=styled.div`
     background-color:${props=>props.bg};
     margin-top: 50px;
     padding:50px 100px 50px;
+    width:40vh;
    
 `

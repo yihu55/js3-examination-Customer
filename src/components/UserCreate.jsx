@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ButtonStyled } from '../styles/ButtonStyled'
 import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
@@ -7,6 +8,8 @@ export default function UserCreate() {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [response,setResponse]=useState("")
+   
+
 
     function handleOnSubmit(e){
         e.preventDefault()
@@ -23,32 +26,35 @@ export default function UserCreate() {
             body: JSON.stringify(payload)
         })
         .then(res => res.json())
-        .then(data => setResponse(data))
-        }
-    
-
+        .then(data => {
+            console.log(data)
+            setResponse(data)})
+    }
 
     return (
         <div>
+            {response}
         <FormSectionStyled>
             <h1>Create user</h1>
             <FormStyled>
                <input
-                type="text" 
-                value={email} 
+                type="text"
+                value={email}
                 placeholder="Email"
                 onChange={e=>setEmail(e.target.value)}
                 />
-                 <input 
-                type="text" 
-                value={password} 
+                 <input
+                type="text"
+                value={password}
                 placeholder="Password"
                 onChange={e=>setPassword(e.target.value)}
                 />
+              
                 <ButtonStyled onSubmit={handleOnSubmit}>Create User</ButtonStyled>
-            </FormStyled> 
+                <p>Already have account<Link to="/login"> Go to Login Page</Link></p>
+            </FormStyled>
         </FormSectionStyled>
-        {response&&<p>{response.email}</p>}
+     
         </div>
     )
 }
