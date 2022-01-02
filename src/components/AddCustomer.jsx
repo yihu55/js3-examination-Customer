@@ -32,7 +32,7 @@ export default function AddCustomer(props) {
         const vatNrStart=vatNr.slice(0,2)
         const vatNrefter=vatNr.slice(2)
 
-        if(vatNrStart!=="SE"&&vatNrefter.length!==10){
+        if(vatNrStart!=="SE"||vatNrefter.length!==10){
             alert("Please input SExxx(10 number)!")
         }
         if(isNaN(paymentTerm)||paymentTerm===""){
