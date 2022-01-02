@@ -1,10 +1,11 @@
 import React from 'react'
 import UserCreate from '../components/UserCreate'
+import { MainStyled } from '../styles/MainStyled'
 
 export default function UserCreatePage() {
     return (
-        <div>
+        <MainStyled bg="#393e46" height="100vh">
            <UserCreate/>
-        </div>
+        </MainStyled>
     )
 }

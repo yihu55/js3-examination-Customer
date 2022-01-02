@@ -38,7 +38,7 @@ export default function LoginPage() {
     return (
         <div>
         
-        <MainStyled bg="#393e46" height="90vh">
+        <MainStyled bg="#393e46" height="100vh">
         <FormSectionStyled bg="#f96d00" width="40%">
             <h1>login</h1>
             <FormStyled onSubmit={handleOnSubmit}>
@@ -55,7 +55,7 @@ export default function LoginPage() {
                 onChange={e=>setPassword(e.target.value)}
                 />
                 <p>If not customer<Link to="/user-create"> create a account</Link></p>
-                <ButtonStyled type="submit" margin="true">Login</ButtonStyled>
+                <ButtonStyled type="submit" margin="true" bg="#222831" color="#f96d00">Login</ButtonStyled>
             </FormStyled>
         </FormSectionStyled>
         </MainStyled>

@@ -13,7 +13,7 @@ export default function HomePage() {
       
         <div>
      
-        <MainStyled bg="#393e46">
+        <MainStyled bg="#393e46" height="100vh">
         {/* <CustomerList onSuccess={props.onSuccess}/>
         <AddCustomer onSuccess={props.onSuccess}/> */}
         <CustomerList />
