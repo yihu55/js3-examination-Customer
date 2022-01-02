@@ -8,5 +8,6 @@ export const FormSectionStyled=styled.div`
     margin-top: 50px;
     padding:50px 100px 50px;
     width:40vh;
+    height:max-content;
    
 `

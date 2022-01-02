@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import React,{useState} from 'react'
+import { Link} from 'react-router-dom'
 import { ButtonStyled } from '../styles/ButtonStyled'
 import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
@@ -7,6 +7,7 @@ import { FormStyled } from '../styles/FormStyled'
 export default function UserCreate() {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
+    const [organisationKind,setOrganisationKind]=useState("")
     const [response,setResponse]=useState("")
    
 
@@ -15,7 +16,8 @@ export default function UserCreate() {
         e.preventDefault()
         const payload={
             email,
-            password
+            password,
+            organisationKind
         }
         const url="https://frebi.willandskill.eu/auth/users/"
         fetch(url,{
@@ -48,6 +50,12 @@ export default function UserCreate() {
                 value={password}
                 placeholder="Password"
                 onChange={e=>setPassword(e.target.value)}
+                />
+                <input
+                type="text"
+                value={organisationKind}
+                placeholder="organisationKind"
+                onChange={e=>setOrganisationKind(e.target.value)}
                 />
               
                 <ButtonStyled onSubmit={handleOnSubmit}>Create User</ButtonStyled>

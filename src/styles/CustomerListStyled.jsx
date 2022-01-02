@@ -8,7 +8,7 @@ align-items:center;
 background-color:${props=>props.bg};
 margin-top:50px;
 padding:50px 100px 50px;
-height:75vh;
+height:70vh;
 overflow:scroll;
 
 div{
