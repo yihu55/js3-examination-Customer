@@ -6,7 +6,7 @@ import { LinkStyled } from '../styles/LinkStyled'
 
 
 
-export default function CustomerList(props) {
+export default function CustomerList() {
     //const {customerList}=useContext(CustomerListContext)
     //console.log(customerList)
 

@@ -1,11 +1,12 @@
 import React,{useState,useEffect} from 'react'
+import { AsideStyled } from '../styles/AsideStyled'
 
 export default function MyAccountInfo() {
 
     const [myData,setMyData]=useState(null)
     useEffect(()=>{
        getUserInfo()
-    },[])
+    },[])//myData in [] will get api infinitly
 
     function getUserInfo(){
     const token=localStorage.getItem("examination")
@@ -22,13 +23,13 @@ export default function MyAccountInfo() {
    }
     return (
        
-        <div>
+        <AsideStyled>
              {myData&&
            <>
            <p>{myData.firstName} {myData.lastName} is inlogged</p>
            <p>email: {myData.email}</p>
            </>}
-        </div>
+        </AsideStyled>
         
     )
 }

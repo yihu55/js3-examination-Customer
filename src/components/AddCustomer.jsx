@@ -4,7 +4,7 @@ import { ButtonStyled } from '../styles/ButtonStyled'
 import { FormSectionStyled } from '../styles/FormSectionStyled'
 import { FormStyled } from '../styles/FormStyled'
 
-export default function AddCustomer(props) {
+export default function AddCustomer() {
    
     const [name,setName]=useState("")
     const [organisationNr,setOrganisationNr]=useState("")
